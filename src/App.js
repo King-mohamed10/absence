@@ -7,25 +7,38 @@ import absences from './data/absences.json';
 import './App.css';
 
 const App = () => {
-  const [currentManagerId, setCurrentManagerId] = useState(null);
-  const [absencesData, setAbsencesData] = useState(absences);
+  const [currentManagerId, setCurrentManagerId] = useState(() => {
+    return localStorage.getItem('currentManagerId') || null;
+  });
+
+  const [absencesData, setAbsencesData] = useState(() => {
+    return JSON.parse(localStorage.getItem('absences')) || absences;
+  });
 
   useEffect(() => {
-    // Charger les données depuis le localStorage si elles existent
-    const savedAbsences = JSON.parse(localStorage.getItem('absences'));
-    if (savedAbsences) {
-      setAbsencesData(savedAbsences);
+    if (currentManagerId) {
+      localStorage.setItem('currentManagerId', currentManagerId);
+    } else {
+      localStorage.removeItem('currentManagerId');
     }
-  }, []);
+  }, [currentManagerId]);
+
+  useEffect(() => {
+    localStorage.setItem('absences', JSON.stringify(absencesData));
+  }, [absencesData]);
 
   const handleLogin = (managerId) => {
     setCurrentManagerId(managerId);
   };
 
+  const handleLogout = () => {
+    setCurrentManagerId(null);
+    localStorage.removeItem('currentManagerId');
+  };
+
   const handleAddAbsence = (newAbsence) => {
     const updatedAbsences = [...absencesData, newAbsence];
     setAbsencesData(updatedAbsences);
-    localStorage.setItem('absences', JSON.stringify(updatedAbsences));
   };
 
   const handleUpdateAbsence = (updatedAbsence) => {
@@ -33,7 +46,6 @@ const App = () => {
       absence.id === updatedAbsence.id ? updatedAbsence : absence
     );
     setAbsencesData(updatedAbsences);
-    localStorage.setItem('absences', JSON.stringify(updatedAbsences));
   };
 
   return (
@@ -41,6 +53,12 @@ const App = () => {
       {currentManagerId ? (
         <>
           <h1>Gestion des absences</h1>
+          <button 
+            onClick={handleLogout} 
+            style={{ marginBottom: '10px', padding: '8px 16px', backgroundColor: 'red', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}
+          >
+            Logout
+          </button>
           <AbsenceTable
             employees={employees}
             currentManagerId={currentManagerId}
@@ -50,7 +68,7 @@ const App = () => {
           />
         </>
       ) : (
-        <Login onLogin={handleLogin} managers={managers}/>
+        <Login onLogin={handleLogin} managers={managers} />
       )}
     </div>
   );

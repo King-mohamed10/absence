@@ -95,4 +95,19 @@ table button:hover {
 }
 
 
+.status-present {
+  background-color: #d4edda; /* Vert clair */
+}
+
+.status-absent {
+  background-color: #f8d7da; /* Rouge clair */
+}
+
+.status-en-retard {
+  background-color: #fff3cd; /* Jaune clair */
+}
+
+.status-en-sortie-autorisee {
+  background-color: #ffe5b4; /* Orange clair */
+}
 
