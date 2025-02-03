@@ -1,0 +1,127 @@
+/* Login Container */
+.login-container {
+    max-width: 350px;
+    margin: 80px auto;
+    padding: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+}
+
+/* Title */
+.login-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Input Fields */
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    color: #333;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-container input:focus {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Button */
+.login-container button {
+    width: 100%;/* Login Container */
+    .login-container {
+        max-width: 350px;
+        margin: 80px;
+        padding: 30px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        color: #fff;
+    }
+    
+    /* Title */
+    .login-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    
+    /* Input Fields */
+    .login-container input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        outline: none;
+        color: #333;
+        background: #fff;
+        transition: all 0.3s ease-in-out;
+        margin-right: 10px;
+    }
+    
+    .login-container input:focus {
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Button */
+    .login-container button {
+        width: 100%;
+        padding: 12px;
+        background: #ff6f61;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s ease-in-out, transform 0.2s;
+    }
+    
+    .login-container button:hover {
+        background: #e65c50;
+        transform: scale(1.05);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 400px) {
+        .login-container {
+            width: 90%;
+            padding: 20px;
+        }
+    }
+    
+    padding: 12px;
+    background: #ff6f61;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.login-container button:hover {
+    background: #e65c50;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+}

@@ -4,6 +4,7 @@ import AbsenceTable from './AbsenceTable';
 import employees from './data/employees.json';
 import managers from './data/managers.json';
 import absences from './data/absences.json';
+import './App.css';
 
 const App = () => {
   const [currentManagerId, setCurrentManagerId] = useState(null);

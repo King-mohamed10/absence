@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const AbsenceForm = ({ employees, currentManagerId, absences, onAddAbsence, onUpdateAbsence }) => {
   const [selectedEmployeeId, setSelectedEmployeeId] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
@@ -46,7 +47,7 @@ const AbsenceForm = ({ employees, currentManagerId, absences, onAddAbsence, onUp
     setSelectedStatus(absence.status);
     setEditingAbsenceId(absence.id);
   };
-
+  console.log(absences.employeeId, employees);
   return (
     <div>
       <h2>{editingAbsenceId ? 'Modifier une absence' : 'Ajouter une absence'}</h2>
@@ -93,6 +94,7 @@ const AbsenceForm = ({ employees, currentManagerId, absences, onAddAbsence, onUp
           {editingAbsenceId && (
             <button type="button" onClick={handleCancel}>Annuler</button>
           )}
+         
         </div>
       </form>
 
@@ -110,10 +112,11 @@ const AbsenceForm = ({ employees, currentManagerId, absences, onAddAbsence, onUp
           {absences
             .filter((absence) => absence.managerId === currentManagerId) // Filtrer par responsable RH
             .map((absence) => {
-              const employee = employees.find((e) => e.id === absence.employeeId);
+              const employee = employees.find((e) => e.id === Number(absence.employeeId));
               return (
                 <tr key={absence.id}>
-                  <td>{employee ? employee.name: 'Inconnu' }</td>
+                    
+                  <td>{employee ? employee.name : 'Inconnu'}</td>
                   <td>{absence.date}</td>
                   <td>{absence.status}</td>
                   <td>
