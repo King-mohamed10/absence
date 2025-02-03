@@ -1,0 +1,22 @@
+[
+    {
+      "id": 1,
+      "name": "Jean Dupont",
+      "onLeave": false
+    },
+    {
+      "id": 2,
+      "name": "Marie Curie",
+      "onLeave": true
+    },
+    {
+      "id": 3,
+      "name": "jhon Doe",
+      "onLeave": true
+    },
+    {
+      "id": 4,
+      "name": "magie Doe",
+      "onLeave": false
+    }
+]
